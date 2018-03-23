@@ -1,0 +1,13 @@
+version: 1.0.{build}
+branches:
+  only:
+  - master
+  - dev
+image: Visual Studio 2017 Preview
+install:
+  - choco install gitversion.portable -pre -y
+before_build:
+  - gitversion /l console /output buildserver
+  - ps: .\build\install-blazor.ps1
+build_script:
+  - cmd: dotnet build src\Chatle.Blazor
