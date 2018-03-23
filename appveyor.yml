@@ -8,6 +8,6 @@ install:
   - choco install gitversion.portable -pre -y
 before_build:
   - gitversion /l console /output buildserver
-  - build\install-blazor.cmd
+  -ps: .\build\install-blazor.ps1
 build:
   verbosity: normal
