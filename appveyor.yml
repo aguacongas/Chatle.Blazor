@@ -9,5 +9,5 @@ install:
 before_build:
   - gitversion /l console /output buildserver
   - ps: .\build\install-blazor.ps1
-build:
-  verbosity: normal
+build_script:
+  - cmd: dotnet build src\Chatle.Blazor
