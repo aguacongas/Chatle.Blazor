@@ -8,6 +8,6 @@ install:
   - choco install gitversion.portable -pre -y
 before_build:
   - gitversion /l console /output buildserver
-  - "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\VSIXInstaller.exe" /q /a build\Microsoft.VisualStudio.BlazorExtension.vsix
+  - build\install-blazro.cmd
 build:
   verbosity: normal
