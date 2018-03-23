@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9F0FAA3F-C6C5-4D04-AAEE-7CDC596B7C1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{AA90B7F6-1071-4EE7-843D-9149CD8FEE58}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chatle.Blazor", "src\Chatle.Blazor\Chatle.Blazor.csproj", "{C06B3232-B32E-4AD7-8607-08209FB1F94D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BCE2DAE0-3281-43B2-8BAE-7F6489A682C8}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		global.json = global.json
+		LICENSE = LICENSE
+		NuGet.Config = NuGet.Config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C06B3232-B32E-4AD7-8607-08209FB1F94D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C06B3232-B32E-4AD7-8607-08209FB1F94D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C06B3232-B32E-4AD7-8607-08209FB1F94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C06B3232-B32E-4AD7-8607-08209FB1F94D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C06B3232-B32E-4AD7-8607-08209FB1F94D} = {9F0FAA3F-C6C5-4D04-AAEE-7CDC596B7C1C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF64E5A6-177B-4F74-A351-E54C98FF923C}
+	EndGlobalSection
+EndGlobal
