@@ -1,0 +1,33 @@
+﻿@page "/login"
+@inject LoginService loginService
+@inject Settings settings
+@inject IUriHelper uriHelper
+@inject ChatleHttpMessageHandler messageHandler
+
+<h1>Login</h1>
+
+@if (providers != null)
+{
+    <form class="form-horizontal" role="form" method="post" action="@externalLogin">
+        <input type="hidden" name="__RequestVerificationToken" value="@messageHandler.XHRF" />
+        @foreach (var provider in providers)
+        {
+            <button type="submit" class="btn btn-default" name="provider" title="@provider.title" value="@provider.authenticationScheme" >@provider.displayName</button>
+        }
+    </form>
+}
+else
+{
+    <span>Loading...</span>
+}
+
+@functions {
+    ExternalLoginProvider[] providers;
+    string externalLogin;
+
+    protected override async Task OnInitAsync()
+    {
+        externalLogin = $"{settings.ApiBaseUrl}{settings.AccountApi}/externalLogin?returnUrl={Uri.EscapeDataString(uriHelper.GetAbsoluteUri())}/confirm";
+        providers = await loginService.GetExternalLoginProviders();
+    }
+}

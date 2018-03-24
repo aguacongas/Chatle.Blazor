@@ -1,16 +1,41 @@
 ﻿@implements ILayoutComponent
+@inject LoginService loginService
+@inject IUriHelper uriHelper
 
 <div class='container-fluid'>
     <div class='row'>
+        @if (string.IsNullOrEmpty(loginService.UserName))
+        {
+            <div class='col-sm-12'>
+                @Body
+            </div>
+        }
+        else
+        {
         <div class='col-sm-3'>
             <NavMenu />
         </div>
         <div class='col-sm-9'>
             @Body
         </div>
+        }
     </div>
 </div>
 
 @functions {
     public RenderFragment Body { get; set; }
+
+    protected override Task OnInitAsync()
+    {
+        if (string.IsNullOrEmpty(loginService.UserName))
+        {
+            var url = uriHelper.GetAbsoluteUri();
+            if (!url.Contains("/login/confirm"))
+            {
+                uriHelper.NavigateTo("/login");
+            }
+        }
+
+        return Task.CompletedTask;
+    }
 }
