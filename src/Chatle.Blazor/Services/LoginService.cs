@@ -30,6 +30,10 @@ namespace Chatle.Blazor.Services
 
         public async Task<string> Validate(string userName)
         {
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                return "user name cannot be empty";
+            }
             try
             {
                 if (await _http.GetJsonAsync<bool>($"{_settings.AccountApi}/exists?userName={userName}"))
@@ -53,6 +57,21 @@ namespace Chatle.Blazor.Services
                 UserName = userName;
             }
             catch(Exception e)
+            {
+                return e.Message;
+            }
+
+            return null;
+        }
+
+        public async Task<string> GuessLogin(string userName)
+        {
+            try
+            {
+                await _http.PostJsonAsync(_settings.AccountApi + "/spaguess", new { userName = userName });
+                UserName = userName;
+            }
+            catch (Exception e)
             {
                 return e.Message;
             }

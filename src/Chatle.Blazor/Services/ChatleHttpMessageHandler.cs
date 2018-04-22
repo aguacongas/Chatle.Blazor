@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Blazor.Browser.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,7 +22,8 @@ namespace Chatle.Blazor.Services
                 await GetXhrf(cancellationToken);
             }
 
-            request.Headers.Add("X-XSRF-TOKEN", _xhrf);
+            var headers = request.Headers;
+            headers.Add("X-XSRF-TOKEN", _xhrf);
 
             try
             {

@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{76FB4383
 		build\Microsoft.VisualStudio.BlazorExtension.vsix = build\Microsoft.VisualStudio.BlazorExtension.vsix
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chatle.Blazor.Test", "test\Chatle.Blazor.Test\Chatle.Blazor.Test.csproj", "{285308C7-BF32-416D-8FC5-5FAC8470FD12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chatle.Blazor.Test", "test\Chatle.Blazor.Test\Chatle.Blazor.Test.csproj", "{285308C7-BF32-416D-8FC5-5FAC8470FD12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

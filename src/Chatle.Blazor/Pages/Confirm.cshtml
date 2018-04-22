@@ -13,15 +13,15 @@
         You've successfully authenticated with <strong>@provider</strong>. Please enter a user name for this site below and
         click the Register button to finish logging in.
     </p>
-    <div class="form-group">
+    <div class="form-group @AlertClass">
         <label class="col-md-2 control-label" for="UserName">User Name</label>
         <div class="col-md-10">
-            <input class="form-control" name="UserName" value=@userName @onchange(value => Validate((string)value)) />
+            <UserName Class="form-control" bind-Value="@userName" ErrorChanged="@OnError"></UserName>
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <button type="submit" class="btn btn-default" @onclick(Register)>Register</button>
+            <button type="submit" class="btn btn-default" onclick="@Register">Register</button>
         </div>
     </div>
 </form>
@@ -34,20 +34,19 @@
     string provider;
     string userName;
     string errormessage;
+    string AlertClass { get { return string.IsNullOrEmpty(errormessage) ? "alert" : null; } }
+    string DisabledAttribute { get { return string.IsNullOrEmpty(errormessage) ? "disabled=\"disabled\"" : null; } }
     bool Disabled { get { return string.IsNullOrEmpty(errormessage) ? false : true; } }
 
     protected override void OnInit()
     {
         provider = uriHelper.GetParameter("p");
         userName = uriHelper.GetParameter("u");
-        Validate(userName);
     }
 
-    async void Validate(string value)
+    private void OnError(string error)
     {
-        userName = value;
-        errormessage = await loginService.Validate(value);
-        StateHasChanged();
+        errormessage = error;
     }
 
     async void Register()

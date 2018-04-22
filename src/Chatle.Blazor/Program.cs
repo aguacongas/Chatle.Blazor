@@ -1,4 +1,5 @@
 ﻿using Chatle.Blazor.Services;
+using Microsoft.AspNetCore.Blazor.Browser.Http;
 using Microsoft.AspNetCore.Blazor.Browser.Rendering;
 using Microsoft.AspNetCore.Blazor.Browser.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ namespace Chatle.Blazor
     {
         static void Main(string[] args)
         {
+            BrowserHttpMessageHandler.DefaultCredentials = FetchCredentialsOption.Include;
             var serviceProvider = new BrowserServiceProvider(services =>
             {
                 services.AddSingleton<Settings>()
