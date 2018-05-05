@@ -7,7 +7,7 @@ namespace Chatle.Blazor.Services
 {
     public class Settings
     {
-        public string ApiBaseUrl { get; set; } = "http://chatle-server.herokuapp.com";
+        public string ApiBaseUrl { get; set; } = "http://localhost:5000";
 
         public string UserApi { get; set; } = "/api/users";
 

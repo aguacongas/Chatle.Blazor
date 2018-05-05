@@ -3,11 +3,16 @@
 <input class="@Class" name="UserName" value=@Value onkeyup="chatle.onKeyUp(this, event);" />
 
 @functions {
-    public string Value { get; set; }
-    public Action<string> ValueChanged { get; set; }
-    public string Class { get; set; }
-    public Action<string> ErrorChanged { get; set; }
-    public Action<bool> PendingChanged { get; set; }
+    [Parameter]
+    string Value { get; set; }
+    [Parameter]
+    Action<string> ValueChanged { get; set; }
+    [Parameter]
+    string Class { get; set; }
+    [Parameter]
+    Action<string> ErrorChanged { get; set; }
+    [Parameter]
+    Action<bool> PendingChanged { get; set; }
 
     protected override void OnInit()
     {

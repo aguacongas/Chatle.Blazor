@@ -8,27 +8,39 @@
 
 @if (providers != null)
 {
-    <form class="form-horizontal" role="form" method="post" action="@externalLogin">
-        <input type="hidden" name="__RequestVerificationToken" value="@messageHandler.XHRF" />
-        @foreach (var provider in providers)
-        {
-            <button type="submit" class="btn btn-default" name="provider" title="@provider.title" value="@provider.authenticationScheme">@provider.displayName</button>
-        }
-    </form>
-    <form>
-        <div class="form-group @AlertClass">
-            <label class="col-md-2 control-label" for="UserName">User Name</label>
-            <div class="col-md-10">
-                <UserName Class="form-control" bind-Value="@UserName" ErrorChanged="@OnError" PendingChanged="@OnPending"></UserName>
+<div class="row">
+    <div class="col-sm-6">
+        <h2>Login with</h2>
+        <form class="form-horizontal" role="form" method="post" action="@externalLogin">
+            <input type="hidden" name="__RequestVerificationToken" value="@messageHandler.XHRF" />
+            @foreach (var provider in providers)
+            {
+                <button type="submit" class="btn btn-default" name="provider" title="@provider.title" value="@provider.authenticationScheme">@provider.displayName</button>
+            }
+        </form>
+    </div>
+    <div class="col-sm-6">
+        <h2>Guess access</h2>
+        <form>
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-2 control-label" for="UserName">User Name</label>
+                    <div class="col-md-10">
+                        <UserName Class="form-control" bind-Value="@UserName" ErrorChanged="@OnError" PendingChanged="@OnPending"></UserName>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-default" disabled="@Disabled" onclick="@Signin">Register</button>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-default" disabled="@Disabled" onclick="@Signin">Register</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="alert">@errormessage</div>
-    </form>
+            <div class="alert">@errormessage</div>
+        </form>
+    </div>
+</div>
 }
 else
 {

@@ -53,7 +53,7 @@ namespace Chatle.Blazor.Services
         {
             try
             {
-                await _http.PutJsonAsync(_settings.AccountApi + "/spaExternalLoginConfirmation", new { userName });
+                await _http.PutJsonAsync(_settings.AccountApi + "/spaExternalLoginConfirmation", new { userName = userName });
                 UserName = userName;
             }
             catch(Exception e)
